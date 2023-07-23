@@ -1,5 +1,5 @@
 # APT.NET-Core-Web-API-using-SQL-Server
-In this article, we will figure out how to make Web API project with ASP.NET Core(v6.0)We will begin with realizing what a Web API and `EF migrations` is, next, we will make another Web API project in Visual Studio and afterward we will consume the API from a .NET client. All actions was made in  Visual Studio 2022 on Window 11 machine with installed SQL Server.
+In this article, we will figure out how to make Web API project with ASP.NET Core(v6.0)We will begin with realizing what a Web API and Entity Framewor is, next, we will make another Web API project in Visual Studio and afterward we will consume the API from a .NET client. All actions was made in  Visual Studio 2022 on Window 11 machine with installed SQL Server.
 
 ### What is Web API?
 A Web API is an application programming interface for either a web server or a web browser. It is a web development concept, usually limited to a web application's client-side (including any web frameworks being used), and thus usually does not include web server or browser implementation details such as SAPIs or APIs unless publicly accessible by a remote web application
@@ -13,11 +13,38 @@ This guide explains setting up a production-ready ASP.NET Core Web API using Ent
 
 ### In this article, you will learn how to
 - Create a simple ASP.NET Core Web API which do REST Operations using Entity Framework(with SQL Server)
-- `EF migrations` with SQL 
+- Entity Framework with SQL 
 - Run and interact with it
 
 ### Required Tools
 * ASP.NET Core
-* Virtual Studio 2019
-* MySQL Workbench
+* Virtual Studio 2022
+* SQL Server Express 2019
 * Postman
+
+## Step 1: SQL Server Installation 
+Following the steps to install SQL Server in your windows 11
+### Download SQL Server Express
+1. Go to this [link](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
+2. Scroll down until you find the Express edition of SQL Server.
+3. Click Download now to start the download.
+### Run the Installation
+Once the download is complete, open the download folder and find the installation file. Run the file to start the installation process.
+### Choose Installation Type
+1. After starting the install process, you can choose between three installation types.
+2. For this project, we are using the Custom installation type. Click the center tile to choose this option.
+3. Specify the install location and click Install to start downloading the setup files.
+4. Select the 'New SQL Server stand-alone installation or add features to an existing installation' option to start the install process.
+5. The following screen gives you an overview of the SQL Express Server license terms. Check the box next to 'I accept the license terms and Privacy Statement' and click 'Next' to continue.
+6. Check the box next to 'Use Microsoft Update to check for updates' to include updates to SQL Server 2019 in the scheduled Windows updates. Click 'Next' to continue.
+7. The 'Install Rules' screen helps identify potential problems with the installation. Any entries showing a Failed status must be resolved before you proceed with the installation. If there are no failed entries, click 'Next' to continue.
+8. On the 'Feature Selection' screen, check the boxes in the 'Features' section to choose which elements of SQL Server 2019 to install, and define the install directories. Click 'Next' to continue.
+9. The 'Instance Configuratio'n screen lets you choose between the default and custom instance names. For this tutorial, we are using the 'Named instance' option and keeping the default suggested names. Click 'Next' to continue.
+10. The following screen lets you install Java with the current installation or specify a path if you already have it installed. Click 'Next' to continue.
+11. The 'Database Engine Configuration' screen lets you specify the authentication mode for your SQL server. For this tutorial, we are using the 'Mixed Mode' option and adding the current user as an administrator. Click 'Next' to continue.
+12. The next two screens require you to consent to installing Microsoft R Open and Python, respectively. Click 'Accept' and 'Next' on both to continue.
+13. Once the installation is complete, the new screen displays an overview of the installed features. Click 'Close' to finish the installation.
+### Test Connection to SQL Server Express
+1. n the login window, choose the SQL Server Authentication option and use the default Login (sa) and the password you set up during the SQL Server 2019 setup.
+2. Click Connect to try to connect to the server.
+If the login window closes without any issues and you have access to the SQL Server Management Studio main window, this means the connection works properly.
