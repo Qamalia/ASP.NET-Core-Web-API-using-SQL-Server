@@ -1,8 +1,8 @@
 # APT.NET-Core-Web-API-using-SQL-Server
-In this article, we will figure out how to make Web API project with ASP.NET Core(v6.0)We will begin with realizing what a Web API and Entity Framewor is, next, we will make another Web API project in Visual Studio and afterward we will consume the API from a .NET client. All actions was made in  Visual Studio 2022 on Window 11 machine with installed SQL Server.
+In this article, we will figure out how to make Web App(MVC) project with ASP.NET Core(v6.0)We will begin with realizing what a Web App(MVC) and Entity Framewor is, next, we will make another Web API project in Visual Studio and afterward we will consume the API from a .NET client. All actions was made in  Visual Studio 2022 on Window 11 machine with installed SQL Server.
 
-### What is Web API?
-A Web API is an application programming interface for either a web server or a web browser. It is a web development concept, usually limited to a web application's client-side (including any web frameworks being used), and thus usually does not include web server or browser implementation details such as SAPIs or APIs unless publicly accessible by a remote web application
+### What is Web App(MVC)?
+A Web App is an application programming interface a web browser. It is a web development concept, usually limited to a web application's client-side (including any web frameworks being used). MVC (Model-View-Controller) is an application building architecture that separates the user interface, application data, and business logic. This architecture consists of three concepts: model, view, and controller. Explore more about [ASP.NET MVC](https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/overview/asp-net-mvc-overview)
 
 ### What is Entity Framework?
 Entity Framework is an Object Relational Mapper (ORM) which is a type of tool that simplifies mapping between objects in your software to the tables and columns of a relational database.
@@ -50,8 +50,88 @@ Once the download is complete, open the download folder and find the installatio
 
 ### Test Connection to SQL Server Express
 1. In the login window, choose the SQL Server Authentication option and use the default Login (sa) and the password you set up during the SQL Server 2019 setup.
-2. Click Connect to try to connect to the server.
+2. Click 'Connect' to try to connect to the server.
 If the login window closes without any issues and you have access to the SQL Server Management Studio main window, this means the connection works properly.
 
-## Step 2: Create ASP.NET Core Web API
-- From the File menu, select New > Project.
+## Step 2: Create a Database
+1. In Object Explorer, connect to an instance of the SQL Server Database Engine and then expand that instance.
+2. Right-click Databases, and then select New Database.
+3. In New Database, enter a database name.
+4. To create the database by accepting all default values, select OK.
+
+## Step 3: Create ASP.NET Core Web App(MVC)
+1. Run Visual Studio and Get started menu > Create a New Project.
+2. Search and select the ASP.NET Web App(Model-View-Controller) and clik 'Next'.
+3. Name the project 'Freelancers' and click 'Create'.
+
+## Step 4: Adding Dependencies in ASP.NET Core
+Before we start our project need a few dependencies. We will add them all by NuGet Package Manager.
+
+The list of packages is below:
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworkCore.Tools
+
+## Step 5: Creating Model and Database Context
+Firstly create folder named Model, then create
+
+``freelancers.cs``
+```C#
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace Freelancers.Models
+{
+    public class freelancers
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long Id { get; set; }
+        
+        [Required]
+        [Column(TypeName = "nvarchar(100)")]
+        public string username { get; set; }
+        
+        [Required]
+        [Column(TypeName = "nvarchar(100)")]
+        public string email { get; set; }
+        
+        [Required]
+        [Column(TypeName = "varchar(11)")]
+        public string phoneNumber { get; set; }
+
+        [Required]
+        [Column(TypeName = "nvarchar(100)")]
+        public string skillsets { get; set; }
+
+        [Required]
+        [Column(TypeName = "nvarchar(100)")]
+        public string hobby { get; set; }
+
+    }
+}
+```
+
+Then Create DBContext file named ``ApiContext``
+
+```C#
+using Microsoft.EntityFrameworkCore;
+using Freelancers.Models;
+
+namespace Freelancers.Data
+{
+    public class ApiContext : DbContext
+    {
+        public DbSet<freelancers> freelancers { get; set; }
+        public ApiContext(DbContextOptions<ApiContext> options)
+            : base(options)
+        {
+
+        }
+    }
+}
+```
+
+## Step 6: Setup the Application Connection
+To setup the connection with server, this project used `appsetins.json` file.
+
