@@ -67,10 +67,7 @@ If the login window closes without any issues and you have access to the SQL Ser
 Before we start our project need a few dependencies. We will add them all by NuGet Package Manager.
 
 The list of packages is below:
-- Microsoft.EntityFrameworkCore
 - Microsoft.EntityFrameworkCore.SqlServer
-- Microsoft.EntityFrameworkCore.Design
-- Microsoft.EntityFrameworkCore.Tools
 
 ## Step 5: Creating Model and Database Context
 Firstly create folder named Model, then create
