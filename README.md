@@ -18,7 +18,7 @@ This guide explains setting up a production-ready ASP.NET Core Web API using Ent
 
 ### Required Tools
 * ASP.NET Core
-* Virtual Studio 2022
+* Visual Studio 2022
 * SQL Server Express 2019
 * Postman
 
