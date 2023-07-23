@@ -24,12 +24,15 @@ This guide explains setting up a production-ready ASP.NET Core Web API using Ent
 
 ## Step 1: SQL Server Installation 
 Following the steps to install SQL Server in your windows 11
+
 ### Download SQL Server Express
 1. Go to this [link](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
 2. Scroll down until you find the Express edition of SQL Server.
 3. Click Download now to start the download.
+
 ### Run the Installation
 Once the download is complete, open the download folder and find the installation file. Run the file to start the installation process.
+
 ### Choose Installation Type
 1. After starting the install process, you can choose between three installation types.
 2. For this project, we are using the Custom installation type. Click the center tile to choose this option.
@@ -44,7 +47,11 @@ Once the download is complete, open the download folder and find the installatio
 11. The 'Database Engine Configuration' screen lets you specify the authentication mode for your SQL server. For this tutorial, we are using the 'Mixed Mode' option and adding the current user as an administrator. Click 'Next' to continue.
 12. The next two screens require you to consent to installing Microsoft R Open and Python, respectively. Click 'Accept' and 'Next' on both to continue.
 13. Once the installation is complete, the new screen displays an overview of the installed features. Click 'Close' to finish the installation.
+
 ### Test Connection to SQL Server Express
-1. n the login window, choose the SQL Server Authentication option and use the default Login (sa) and the password you set up during the SQL Server 2019 setup.
+1. In the login window, choose the SQL Server Authentication option and use the default Login (sa) and the password you set up during the SQL Server 2019 setup.
 2. Click Connect to try to connect to the server.
 If the login window closes without any issues and you have access to the SQL Server Management Studio main window, this means the connection works properly.
+
+## Step 2: Create ASP.NET Core Web API
+- From the File menu, select New > Project.
