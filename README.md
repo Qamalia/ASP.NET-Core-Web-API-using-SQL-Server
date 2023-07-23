@@ -217,6 +217,7 @@ Then add the HttpPost into controller
 Continue with HttpDelete
 
 ```C#
+//Delete
 [Route("/Home/Delete")]
         [HttpDelete]
         public IActionResult Delete(freelancers list)
@@ -234,6 +235,7 @@ Continue with HttpDelete
 Lastly, HttpPut
 
 ```C#
+//Edit
 [Route("/Home/Edit")]
         [HttpPut]
         public JsonResult Edit(freelancers list)
