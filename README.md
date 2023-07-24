@@ -267,4 +267,5 @@ GetAll() that redirect to index page view
         }
 ```
 
-Now, design UI that can link between controller and model using JSON.
+Now, design UI that can link between controller and model using JSON. 
+Click this [link]() to see how this project work
