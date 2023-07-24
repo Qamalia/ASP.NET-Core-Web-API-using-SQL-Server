@@ -1,4 +1,4 @@
-# APT.NET-Core-Web-API-using-SQL-Server
+# ASP.NET-Core-Web-API-using-SQL-Server
 In this article, we will figure out how to make Web App(MVC) project with ASP.NET Core(v6.0)We will begin with realizing what a Web App(MVC) and Entity Framewor is, next, we will make another Web API project in Visual Studio and afterward we will consume the API from a .NET client. All actions was made in  Visual Studio 2022 on Window 11 machine with installed SQL Server.
 
 ### What is Web App(MVC)?
